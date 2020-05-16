@@ -1,0 +1,35 @@
+class Solution {
+    public int reverse(int x) {
+        
+          
+	        StringBuffer sb = new StringBuffer();
+	        boolean neg = false;
+	        
+	        if(x<0)
+	        {
+	        	x=-x;
+	        	neg=true;
+	        }
+	        
+	        while(x!=0)
+	        {
+	            int c = x%10;
+	            x = x/10;
+	            sb.append(c);
+	        }
+	        
+          try
+          {
+	      if(neg)
+	      return -Integer.parseInt(sb.toString());
+	      
+	      else
+	    	   return Integer.parseInt(sb.toString().trim());
+          }
+         catch(Exception e)
+         {
+             return 0;
+         }
+		
+    }
+}
