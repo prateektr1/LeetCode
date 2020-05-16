@@ -1,0 +1,25 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        
+        int count =0;
+        int old = nums.length;
+        int i=0;
+        
+        for(int a: nums)
+        {
+            if(a==val)
+                count++;
+            
+            else
+            {
+                nums[i]=a;
+                i++;
+            }
+        }
+        
+      
+        
+        return nums.length-count;
+        
+    }
+}
