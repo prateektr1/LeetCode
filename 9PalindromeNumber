@@ -1,0 +1,15 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+      
+         StringBuilder sb = new StringBuilder();
+	        sb.append(x);
+	        if(x<0)
+	            return false;
+	        
+	        if(sb.reverse().toString().trim().equals(String.valueOf(x)))
+	            return true;
+	        
+	        return false;
+	        
+        
+    }
