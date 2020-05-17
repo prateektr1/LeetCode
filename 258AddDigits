@@ -1,0 +1,24 @@
+class Solution {
+    public int addDigits(int num) {
+        
+        String tar = String.valueOf(num);
+		int sum = 0;
+        if(tar.length()==1)
+            return num;
+		while (tar.length() != 1) {
+			char y[] = tar.toCharArray();
+
+			for (char g : y) {
+				sum = sum + Character.getNumericValue(g);
+			}
+
+			if (String.valueOf(sum).length() == 1)
+				break;
+
+			tar = String.valueOf(sum);
+			sum=0;
+		}
+		return sum;
+        
+    }
+}
