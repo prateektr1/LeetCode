@@ -1,0 +1,30 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+class Solution {
+    public int firstUniqChar(String s) {
+        
+        Map<Character,Integer> m = new LinkedHashMap<Character,Integer>();
+		char ans ='\0';
+		
+		for(char y : s.toCharArray())
+		{
+			int count = m.getOrDefault(y, 0);
+			count++;
+			m.put(y, count);
+		}
+		
+		for(Entry<Character, Integer> e : m.entrySet())
+		{
+			if(e.getValue()==1)
+			{
+				ans = e.getKey();
+				break;
+			}
+				
+		}
+		
+		return s.indexOf(ans);
+        
+    }
+}
