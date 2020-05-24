@@ -1,0 +1,26 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        
+      int j =0;
+      int k=-1;
+        
+        if(nums.length==0)
+            return k;
+        
+         if(nums.length==1 && nums[0]==target)
+            return 0;
+    
+        while(j<=nums.length-1)
+        {
+            if(nums[j]==target)
+            {
+                k=j;
+                break;
+            }
+            j++;
+        }
+        
+        return k;
+        
+    }
+}
