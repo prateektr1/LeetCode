@@ -1,0 +1,23 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        
+        Map<Integer,Integer> freq=new HashMap<Integer,Integer>();
+        int j=0;
+        int result=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            int count = freq.getOrDefault(nums[i],0);
+            count++;
+            freq.put(nums[i],count);
+            if(count==1)
+            {
+                nums[j]=nums[i];
+                j++;
+                result++;
+            }
+        }
+        Arrays.fill(nums,j,nums.length,0);
+        return result;
+        
+    }
+}
