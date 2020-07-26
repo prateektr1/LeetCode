@@ -1,0 +1,30 @@
+ public int[] searchRange(int[] nums, int target) {
+        
+    int ans[] = {-1,-1};
+    int i=0;
+    int j=0;
+    boolean first= false;
+   
+        for(int k:nums)
+        {
+            if(k==target && !first) {
+                ans[0] = i;
+                first = true;
+                i++;
+            }
+            else
+            {
+                if(k==target) {
+                    ans[1] = i;
+                }
+                i++;
+            }
+        }
+        
+         if(first && nums.length==1|| ans[1]==-1) {
+            ans[1] =ans[0];
+        }
+        
+      return ans;
+        
+    }
