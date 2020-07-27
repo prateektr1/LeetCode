@@ -1,0 +1,8 @@
+class Solution {
+    public int findComplement(int num) {
+        
+        int k = Integer.toBinaryString(num).toString().length();
+        return ((1 << k) - 1) ^ num;
+        
+    }
+}
