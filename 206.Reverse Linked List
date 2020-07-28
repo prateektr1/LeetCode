@@ -1,0 +1,25 @@
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        
+        Stack<ListNode> st = new Stack<ListNode>();
+        ListNode tempnew = new ListNode(-1);
+        
+        while(head!=null)
+        {
+            st.push(head);
+            head=head.next;
+        }
+        
+       
+        head = tempnew;
+        while(!st.isEmpty())
+        {
+            ListNode current = st.pop();
+            head.next = new ListNode(current.val);
+            head = head.next;
+        }
+        
+        return tempnew.next;    
+        
+    }
+}
