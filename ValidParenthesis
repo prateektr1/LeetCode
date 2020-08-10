@@ -1,0 +1,39 @@
+class Solution {
+    public boolean isValid(String s) {
+        
+         Stack<Character> st = new Stack<>();
+        for(char t:s.toCharArray())
+        {
+            if(t=='(' || t=='{' || t=='[')
+            {
+                st.push(t);
+            }
+            
+            else
+            {
+                if(st.isEmpty())
+                {
+                  return false;
+                }
+                else
+                {
+                    char popped = st.pop();
+                    if(t==')' && popped!='(')
+                    return false;
+                    if(t=='}' && popped!='{')
+                    return false;
+                    if(t==']' && popped!='[')
+                    return false;
+                    
+                }
+                
+            }
+        }
+
+        if(st.isEmpty())
+           return true;
+        else
+            return false;
+        
+    }
+}
