@@ -1,0 +1,23 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        Map<Integer,Integer> s = new HashMap<>();
+       int count=0;
+       int result=-1;
+       for(int i:nums)
+       {
+          count = s.getOrDefault(i,0);
+          count++;
+          s.put(i,count);
+       }
+
+       for(int k : s.keySet())
+       {
+           if(s.get(k)==1)
+           {
+               result=k;
+               break;
+           }
+       }
+       return result;
+    }
+}
