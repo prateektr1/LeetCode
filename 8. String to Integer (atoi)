@@ -1,0 +1,29 @@
+class Solution {
+    public int myAtoi(String str) {
+        
+        str = str.trim();
+        if(str.length() == 0) return 0;
+        boolean positive = true;
+        int index = 0;
+        //check optional sign
+        if(str.charAt(index) == '-' || str.charAt(index) == '+'){
+            if(str.charAt(index) == '-')
+                positive = false;
+            index++;
+        }
+        //perform conversion
+        long num = 0;
+        for(int i = index; i < str.length(); i++){
+            if(!Character.isDigit(str.charAt(i))) //stop converting
+                break;
+            if(num > Integer.MAX_VALUE) // overflow
+                return positive ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            num = num * 10 + (str.charAt(i) - '0');
+        }
+        
+        if(num > Integer.MAX_VALUE)
+            return positive ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        
+        return positive ? (int)num : -1 * (int)num;
+    }
+}
