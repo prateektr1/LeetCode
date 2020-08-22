@@ -1,0 +1,25 @@
+class Solution {
+    public int maxArea(int[] height) {
+        
+        int max_area=0;
+        int a_ptr =0;
+        int b_ptr = height.length-1;
+        
+        while(a_ptr<b_ptr)
+        {
+            if(height[a_ptr]<height[b_ptr])
+            {
+                max_area=Math.max(max_area,height[a_ptr]*(b_ptr-a_ptr));
+                a_ptr = a_ptr+1;
+            }
+            else
+            {
+                 max_area=Math.max(max_area,height[b_ptr]*(b_ptr-a_ptr));
+                 b_ptr = b_ptr-1;
+            }
+            
+        }
+        
+        return max_area;
+    }
+}
